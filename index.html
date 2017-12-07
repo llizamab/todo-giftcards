@@ -13,6 +13,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
   <body>
@@ -30,19 +31,31 @@
                 Categorias
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-1-col.html">Categoria 1</a>
-                <a class="dropdown-item" href="portfolio-2-col.html">Categoria 2</a>
-                <a class="dropdown-item" href="portfolio-3-col.html">Categoria 3</a>
+                <a class="dropdown-item" href="#">Categoria 1</a>
+                <a class="dropdown-item" href="#">Categoria 2</a>
+                <a class="dropdown-item" href="#">Categoria 3</a>
               </div>
             </li>
+			<li class="nav-item">
+			  <form class="form-inline my-2 my-lg-0 mr-lg-2">
+				<div class="input-group">
+				  <input class="form-control" type="text" placeholder="Search for...">
+				  <span class="input-group-btn">
+					<button class="btn btn-primary" type="button">
+					  <i class="fa fa-search"></i>
+					</button>
+				  </span>
+				</div>
+			  </form>
+			</li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Iniciar sesión</a>
+              <a class="nav-link" href="login.html">Iniciar sesión</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="contact.html">Registrarse</a>
+              <a class="nav-link" href="register.html">Registrarse</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="contact.html">Carrito</a>
+              <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i>Carrito</a>
             </li>
           </ul>
         </div>
@@ -58,14 +71,14 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-item active" style="background-image: url('images/slice1.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h3>First Slide</h3>
               <p>This is a description for the first slide.</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-item" style="background-image: url('images/slice2.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h3>Second Slide</h3>
               <p>This is a description for the second slide.</p>
@@ -100,7 +113,7 @@
 		<div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h5 class="card-header">GiftCard 1</h5>
-			<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			<a href="item.html"><img class="card-img-top" src="images/giftcard5.jpg" alt=""></a>
             <div class="card-body">
 			  <h4 class="card-title">
                 <a href="#">$10.000 en tienda1</a>
@@ -108,7 +121,7 @@
               <p class="card-text">descripcion blablabla.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="item.html" class="btn btn-primary">Comprar</a>
             </div>
           </div>
         </div>
@@ -116,7 +129,7 @@
 		<div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h5 class="card-header">GiftCard 2</h5>
-			<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			<a href="item.html"><img class="card-img-top" src="images/giftcard3.png" alt=""></a>
             <div class="card-body">
 			  <h4 class="card-title">
                 <a href="#">$5.000 en tienda1</a>
@@ -124,7 +137,7 @@
               <p class="card-text">descripcion blablabla.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="item.html" class="btn btn-primary">Comprar</a>
             </div>
           </div>
         </div>
@@ -132,10 +145,42 @@
 		<div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h5 class="card-header">GiftCard 3</h5>
-			<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			<a href="item.html"><img class="card-img-top" src="images/giftcard4.jpg" alt=""></a>
             <div class="card-body">
 			  <h4 class="card-title">
                 <a href="#">$15.000 en tienda2</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="item.html" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 4</h5>
+			<a href="item.html"><img class="card-img-top" src="images/giftcard3.jpg" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="item.html" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 5</h5>
+			<a href="#"><img class="card-img-top" src="images/giftcard2.jpg" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
               </h4>
               <p class="card-text">descripcion blablabla.</p>
             </div>
@@ -147,7 +192,119 @@
 		
 		<div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h5 class="card-header">GiftCard 4</h5>
+            <h5 class="card-header">GiftCard 6</h5>
+			<a href="#"><img class="card-img-top" src="images/giftcard2.png" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 7</h5>
+			<a href="#"><img class="card-img-top" src="images/giftcard.png" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 8</h5>
+			<a href="#"><img class="card-img-top" src="images/Woodwe-gift-card.png" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 9</h5>
+			<a href="#"><img class="card-img-top" src="images/gift-card.jpg" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 10</h5>
+			<a href="#"><img class="card-img-top" src="images/gitfcard1.jpeg" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 11</h5>
+			<a href="#"><img class="card-img-top" src="images/giftcard6.jpg" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 12</h5>
+			<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+			  <h4 class="card-title">
+                <a href="#">$1.000 en tienda1</a>
+              </h4>
+              <p class="card-text">descripcion blablabla.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+		
+		<div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h5 class="card-header">GiftCard 13</h5>
 			<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
 			  <h4 class="card-title">
@@ -170,7 +327,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Todo-Giftcards 2017</p>
       </div>
       <!-- /.container -->
     </footer>
@@ -178,7 +335,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   </body>
 
 </html>
