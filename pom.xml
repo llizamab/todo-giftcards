@@ -9,5 +9,6 @@
   <modules>
   	<module>giftcard-views</module>
   	<module>giftcard-services</module>
+  	<module>giftcard-bbdd</module>
   </modules>
 </project>
