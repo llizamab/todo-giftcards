@@ -1,4 +1,4 @@
-package cl.todogiftcard.graphql.pojo;
+package cl.todogiftcard.dto;
 
 public class GiftCard {
 	
