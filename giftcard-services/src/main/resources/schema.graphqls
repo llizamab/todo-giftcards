@@ -1,0 +1,12 @@
+schema {
+    query: Query
+}
+
+type Query {
+    allGiftCards: [GiftCard]
+}
+
+type GiftCard {
+    id: String!
+    nombre: String!
+}
