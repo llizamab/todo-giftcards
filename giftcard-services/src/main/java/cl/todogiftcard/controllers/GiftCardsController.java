@@ -1,28 +1,53 @@
 package cl.todogiftcard.controllers;
 
+import java.util.List;
+import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@Service
+import cl.todogiftcard.dto.GiftCard;
+import cl.todogiftcard.services.GiftCardsService;
+
 @RequestMapping("/giftcards")
+@RestController
 @PropertySource(value = { "classpath:application.properties" })
 public class GiftCardsController {
+	
+	private static final Logger logger = Logger.getLogger(GiftCardsController.class.getName());
+	
+	@Autowired
+	private GiftCardsService service;
 
 	
 	@RequestMapping (value="/findAll", 
 			method=RequestMethod.GET, 
 			produces="application/json", 
-			headers ="Accept=application/json")
-	public ResponseEntity<String> findAllGiftCards(@RequestParam ("token") String token) {
+			headers ="Accept=application/json"
+			)
+	public ResponseEntity<List<GiftCard>> findAllGiftCards(@RequestParam (value="token", defaultValue="") String token) {
 		
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		logger.info("INI request on findAllGiftCards");
+		HttpStatus httpStatus = null;
+		List<GiftCard> data = null;
+		// llamar al service
+		try {
+			
+			data = service.findAll();
+			httpStatus = HttpStatus.ACCEPTED;
+			
+		} catch (final Exception error) {
+			logger.info("ERROR on findAllGiftCards: " + error);
+			httpStatus = HttpStatus.SERVICE_UNAVAILABLE;
+		}
+		logger.info("FIN request on findAllGiftCards with: " + data);
+		return new ResponseEntity<>(data, httpStatus);
 	}
 	
 }

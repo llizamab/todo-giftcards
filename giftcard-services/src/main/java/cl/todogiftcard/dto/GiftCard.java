@@ -2,15 +2,15 @@ package cl.todogiftcard.dto;
 
 public class GiftCard {
 	
-	 	private final String id;
+	 	private final Long id;
 	    private final String nombre;
 
-	    public GiftCard(String id, String nombre) {
+	    public GiftCard(Long id, String nombre) {
 	        this.id = id;
 	        this.nombre = nombre;
 	    }
 
-	    public String getId() {
+	    public Long getId() {
 	        return id;
 	    }
 

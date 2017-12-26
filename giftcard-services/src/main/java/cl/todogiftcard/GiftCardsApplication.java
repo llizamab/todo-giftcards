@@ -1,10 +1,12 @@
-package cl.todogiftcard.application;
+package cl.todogiftcard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
+@EntityScan("cl.todogiftcard.dao.entities")
 public class GiftCardsApplication {
 
 	/** Constructor.
