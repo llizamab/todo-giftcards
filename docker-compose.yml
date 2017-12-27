@@ -18,6 +18,14 @@ services:
     restart: always
     ports:
       - 8085:8080
+  
+  apache-php:
+    image: php:7.0-apache
+    container_name: apache-tg
+    volumes:
+      - ./giftcard-views/src/main/resources:/var/www/html
+    ports:
+      - 80:80
 
 volumes:
   postgresql:

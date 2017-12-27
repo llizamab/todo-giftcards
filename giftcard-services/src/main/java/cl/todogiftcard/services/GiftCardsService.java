@@ -10,4 +10,6 @@ public interface GiftCardsService {
 	 * @return the list
 	 */
 	List<GiftCard> findAll();
+	
+	GiftCard findById(final Long id);
 }

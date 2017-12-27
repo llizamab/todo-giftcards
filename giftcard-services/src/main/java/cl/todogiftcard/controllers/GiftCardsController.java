@@ -24,14 +24,13 @@ public class GiftCardsController {
 	
 	@Autowired
 	private GiftCardsService service;
-
 	
 	@RequestMapping (value="/findAll", 
 			method=RequestMethod.GET, 
 			produces="application/json", 
 			headers ="Accept=application/json"
 			)
-	public ResponseEntity<List<GiftCard>> findAllGiftCards(@RequestParam (value="token", defaultValue="") String token) {
+	public ResponseEntity<List<GiftCard>> findAllGiftCards(@RequestParam(value="token", defaultValue="") String token) {
 		
 		logger.info("INI request on findAllGiftCards");
 		HttpStatus httpStatus = null;
@@ -50,4 +49,26 @@ public class GiftCardsController {
 		return new ResponseEntity<>(data, httpStatus);
 	}
 	
+	@RequestMapping (value="/findById", 
+			method=RequestMethod.GET, 
+			produces="application/json", 
+			headers ="Accept=application/json"
+			)
+	public ResponseEntity<GiftCard> findGiftCardById(@RequestParam(value="id") Long id, @RequestParam(value="token", defaultValue="") String token) {
+		logger.info("INI request on findGiftCardById");
+		HttpStatus httpStatus = null;
+		GiftCard data = null;
+		// llamar al service
+		try {
+			
+			data = service.findById(id);
+			httpStatus = HttpStatus.ACCEPTED;
+			
+		} catch (final Exception error) {
+			logger.info("ERROR on findGiftCardById: " + error);
+			httpStatus = HttpStatus.SERVICE_UNAVAILABLE;
+		}
+		logger.info("FIN request on findGiftCardById with: " + data);
+		return new ResponseEntity<>(data, httpStatus);
+	}
 }

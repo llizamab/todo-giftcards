@@ -21,10 +21,29 @@ public class GiftCardsDAOImpl implements GiftCardsDAO {
 
 	@Override
 	public List<GiftCardEntity> findAll() {
-		// 
-		final Query query = entityManager.createQuery("select g from GiftCardEntity g ");
+		// query
+		final Query query = entityManager.createQuery(
+				"select g from GiftCardEntity g where g.activo = true");
 		// execute
 		return query.getResultList();
+	}
+
+	@Override
+	public GiftCardEntity findById(Long id) {
+		// retorno
+		GiftCardEntity retorno = null;
+		// query
+		final Query query = entityManager.createQuery(
+				"select g from GiftCardEntity g where g.activo = true and g.idGiftCard = :id ");
+		
+		query.setParameter("id", id);
+		
+		List<GiftCardEntity> data = query.getResultList();
+		if (!data.isEmpty()) {
+			retorno = data.get(0);
+		}
+		// execute
+		return retorno;
 	}
 
 }

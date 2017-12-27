@@ -1,3 +1,19 @@
+<?php 
+include 'utils.php';
+
+// get id param
+$id_giftcard = $_GET["id"];
+
+$result = json_decode(CallAPI("GET", $_ENV["GIFTCARDS_ENDPOINT"] . "/findById", array("id" => $id_giftcard)), true);
+
+if ($result == "" || !is_array($result)) {
+    $message = "Error. No existe la giftcard";
+    echo "<script type='text/javascript'>alert('$message'); window.location.replace('./index.html');</script>";
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,20 +86,20 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">GiftCard 1
-        <small>Tienda xx</small>
+      <h1 class="mt-4 mb-3"><?php echo $result['nombre']; ?>
+        <small><?php echo $result['titulo'] ?></small>
       </h1>
 
       <!-- Portfolio Item Row -->
       <div class="row">
 
         <div class="col-md-5">
-          <img class="img-fluid" src="images/giftcard5.jpg" alt="">
+          <img class="img-fluid" src="<?php echo $result["urlImageMedium"] ?>" alt="">
         </div>
 
         <div class="col-md-7">
           <h3 class="my-3">Descripcion de la giftcard</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+          <p><?php echo $result["descripcion"] ?></p>
           <h3 class="my-3">Detalles</h3>
           <ul>
             <li>Valida para blablabl</li>

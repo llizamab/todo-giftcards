@@ -26,12 +26,46 @@ public class GiftCardsServiceImpl implements GiftCardsService {
 		// por cada
 		for (final GiftCardEntity entity : data) {
 			
-			final GiftCard giftcard = new GiftCard(entity.getIdGiftCard(), entity.getNombreGiftCard());
+			final GiftCard giftcard = new GiftCard();
+			
+			giftcard.setId(entity.getIdGiftCard());
+			giftcard.setNombre(entity.getNombreGiftCard());
+			giftcard.setTitulo(entity.getTitulo());
+			giftcard.setDescripcion(entity.getDescripcion());
+			giftcard.setMonto(entity.getMonto());
+			giftcard.setValor(entity.getValor());
+			giftcard.setUrlImageSmall(entity.getUrlImageSmall());
+			giftcard.setUrlImageMedium(entity.getUrlImageMedium());
+			giftcard.setUrlImageLarge(entity.getUrlImageLarge());
+			
 			retorno.add(giftcard);
 		}
-		
 		// retunr
 		return retorno;
+	}
+
+	@Override
+	public GiftCard findById(final Long id) {
+		// retorno
+		GiftCard giftcard = null;
+		if (id != null) {
+			final GiftCardEntity entity = dao.findById(id);
+			if (entity != null) {
+				giftcard = new GiftCard();
+				
+				giftcard.setId(entity.getIdGiftCard());
+				giftcard.setNombre(entity.getNombreGiftCard());
+				giftcard.setTitulo(entity.getTitulo());
+				giftcard.setDescripcion(entity.getDescripcion());
+				giftcard.setMonto(entity.getMonto());
+				giftcard.setValor(entity.getValor());
+				giftcard.setUrlImageSmall(entity.getUrlImageSmall());
+				giftcard.setUrlImageMedium(entity.getUrlImageMedium());
+				giftcard.setUrlImageLarge(entity.getUrlImageLarge());
+			}
+		}
+		// return
+		return giftcard;
 	}
 
 }

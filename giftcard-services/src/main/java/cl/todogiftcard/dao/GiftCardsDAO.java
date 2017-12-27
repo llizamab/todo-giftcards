@@ -7,4 +7,6 @@ import cl.todogiftcard.dao.entities.GiftCardEntity;
 public interface GiftCardsDAO {
 
 	public List<GiftCardEntity> findAll();
+	
+	public GiftCardEntity findById(final Long id);
 }
