@@ -35,7 +35,8 @@ function CallAPI($method, $url, $data = false) {
 // env vars
 $_ENV["API_URL"] = "http://192.168.1.8:9001";
 $_ENV["GIFTCARDS_ENDPOINT"] = $_ENV["API_URL"] . "/giftcards";
-
+$_ENV["ACCES_ENDPOINT"] = $_ENV["API_URL"] . "/access";
+$_ENV["PAGE_TITLE"] = "Todo Giftcards";
 
 
 ?>

@@ -1,5 +1,6 @@
 <?php 
-include 'utils.php';
+// header
+include 'header.php';
 
 // get id param
 $id_giftcard = $_GET["id"];
@@ -8,80 +9,11 @@ $result = json_decode(CallAPI("GET", $_ENV["GIFTCARDS_ENDPOINT"] . "/findById", 
 
 if ($result == "" || !is_array($result)) {
     $message = "Error. No existe la giftcard";
-    echo "<script type='text/javascript'>alert('$message'); window.location.replace('./index.html');</script>";
+    echo "<script type='text/javascript'>alert('$message'); window.location.replace('./index.php');</script>";
     die();
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Todo Giftcards</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
-	<link href="css/multi-carusel.css" rel="stylesheet">
-	<!-- Custom fonts for this template-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Todo Giftcards</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Categorias
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="#">Categoria 1</a>
-                <a class="dropdown-item" href="#">Categoria 2</a>
-                <a class="dropdown-item" href="#">Categoria 3</a>
-              </div>
-            </li>
-			<li class="nav-item">
-			  <form class="form-inline my-2 my-lg-0 mr-lg-2">
-				<div class="input-group">
-				  <input class="form-control" type="text" placeholder="Search for...">
-				  <span class="input-group-btn">
-					<button class="btn btn-primary" type="button">
-					  <i class="fa fa-search"></i>
-					</button>
-				  </span>
-				</div>
-			  </form>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Iniciar sesión</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="register.html">Registrarse</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i>Carrito</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <!-- Page Content -->
     <div class="container">
 
@@ -223,19 +155,4 @@ if ($result == "" || !is_array($result)) {
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Todo-Giftcards 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="js/multi-carusel.js"></script>
-
-  </body>
-
-</html>
+<?php include 'footer.php' ?>
