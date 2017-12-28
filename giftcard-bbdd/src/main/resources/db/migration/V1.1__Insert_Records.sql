@@ -1,7 +1,8 @@
 
 -- Estados
-INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (1, 'Pendiente', 'Pendiente aprobacion');
-INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (2, 'Aprobado', 'Aprobado empresa');
+INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (1, 'Borrador', 'En estado de compra pendiente pago usuario');
+INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (2, 'PendienteAprobacion', 'Pagado por usuario y Pendiente aprobacion empresa');
+INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (3, 'Aprobado', 'Aprobado empresa');
 
 
 -- Empresa
