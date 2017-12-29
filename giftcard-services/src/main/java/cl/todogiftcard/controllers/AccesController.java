@@ -60,14 +60,52 @@ public class AccesController {
 			
 		} catch (final Exception error) {
 			logger.info("ERROR on loginUser: " + error);
+			logger.info(error.getLocalizedMessage());
 			httpStatus = HttpStatus.SERVICE_UNAVAILABLE;
 			// error
 			data.put("status", "KO");
-			data.put("error", "Exception" + error.getLocalizedMessage());
+			data.put("error", "Exception: " + error.getLocalizedMessage());
 		}
 		logger.info("FIN request on loginUser with: " + data);
 		// retorno
 		return new ResponseEntity<>(data, httpStatus);
 	}
 
+	@RequestMapping (value="/logoutUser", 
+			method=RequestMethod.POST, 
+			produces="application/json", 
+			headers ="Accept=application/json"
+			)
+	public ResponseEntity<Map<String, Object>> logoutUser(@RequestParam(value="userId") Long userId, 
+				@RequestParam(value="token") String token) {
+		logger.info("INI request on logoutUser");
+		HttpStatus httpStatus = null;
+		final Map<String, Object> data = new HashMap<>();
+		// llamar al service
+		try {
+			// si el logout es valido
+			if (service.logoutUser(userId, token)) {
+				// guardo los datos
+				data.put("status", "OK");
+				
+			} else {
+				// error
+				data.put("status", "KO");
+				data.put("error", "Usuario/Token no existen");
+			}
+			
+			httpStatus = HttpStatus.ACCEPTED;
+			
+		} catch (final Exception error) {
+			logger.info("ERROR on logoutUser: " + error);
+			logger.info(error.getLocalizedMessage());
+			httpStatus = HttpStatus.SERVICE_UNAVAILABLE;
+			// error
+			data.put("status", "KO");
+			data.put("error", "Exception: " + error.getLocalizedMessage());
+		}
+		logger.info("FIN request on logoutUser with: " + data);
+		// retorno
+		return new ResponseEntity<>(data, httpStatus);
+	}
 }

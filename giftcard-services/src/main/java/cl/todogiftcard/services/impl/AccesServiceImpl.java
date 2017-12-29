@@ -1,8 +1,6 @@
 package cl.todogiftcard.services.impl;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,19 +27,36 @@ public class AccesServiceImpl implements AccesService {
 	public boolean loginUser(String email, String password) {
 		// retorno
 		boolean valido = false;
-		// TODO: valido formato email
-		
-		// TODO: valido formato pass
-		
-		// busco el usuario
-		final UserEntity user = userDao.findByEmail(email);
-		// si el usuario existe, valido el mail, y coindice la contraseña
-		if (user != null && user.isEmailValido() 
-			&& user.getPassword().equals(Utils.encrypt(password))) {
-			// valido
-			valido = true;
+		// valido formato email y pass
+		if (Utils.validarEmail(email) && password != null 
+				&& !password.trim().isEmpty()) {
+			// busco el usuario
+			final UserEntity user = userDao.findByEmail(email);
+			// si el usuario existe, valido el mail, y coindice la contraseña
+			if (user != null && user.isEmailValido() 
+				&& user.getPassword().equals(Utils.encrypt(password))) {
+				// valido
+				valido = true;
+			}
 		}
 		// retorno si es valido
+		return valido;
+	}
+
+	@Override
+	public boolean logoutUser(Long idUser, String token) {
+		// retorno
+		boolean valido = false;
+		// si el token existe
+		final BitacoraLoginEntity tokenEnt = tokenDao.findByUserToken(token, idUser);
+		// si no es null
+		if (tokenEnt != null) {
+			// lo inactivo
+			tokenEnt.setActivo(false);
+			// y actualizo
+			tokenDao.update(tokenEnt);
+			valido = true;
+		}
 		return valido;
 	}
 
@@ -105,6 +120,7 @@ public class AccesServiceImpl implements AccesService {
 		final Calendar exp = Calendar.getInstance();
 		exp.add(Calendar.MINUTE, +10);
 		entity.setExpiracionSession(exp);
+		entity.setActivo(true);
 		// creo el registro
 		tokenDao.persist(entity);
 		// retorno

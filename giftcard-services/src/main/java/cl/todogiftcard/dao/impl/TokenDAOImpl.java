@@ -75,14 +75,14 @@ public class TokenDAOImpl implements TokenDAO {
 
 	@Override
 	public void update(BitacoraLoginEntity entity) {
-		// TODO Auto-generated method stub
-		
+		// update
+		entityManager.merge(entity);
 	}
 
 	@Override
 	public void delete(BitacoraLoginEntity entity) {
-		// TODO Auto-generated method stub
-		
+		// delete
+		entityManager.remove(entity);
 	}
 
 }

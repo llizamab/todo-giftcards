@@ -52,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
 		UserEntity retorno = null;
 		// query
 		final Query query = entityManager.createQuery(
-				"select u from UserEntity u where u.activo = true and u.email = :email ");
+			"select u from UserEntity u where u.activo = true and u.email = :email and u.emailValido = true ");
 		// parameter
 		query.setParameter("email", email);
 		// execute

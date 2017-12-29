@@ -31,7 +31,7 @@ include 'utils.php';
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
            <li class="nav-item">
-             <a class="nav-link" href="index.php">Volver</a>
+             <a class="nav-link" href="index.php"><i class="fa fa-fw fa-backward"></i> Volver</a>
            </li>
          </ul>
        </div>
@@ -70,6 +70,7 @@ include 'utils.php';
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
       <script type="text/javascript">
           $("#btnLogin").click(function(event) {
+        	  $(".alert").alert('close');
         	  // get data
         	  var email = $("#inputEmail").val();
         	  var password = $("#inputPassword").val();

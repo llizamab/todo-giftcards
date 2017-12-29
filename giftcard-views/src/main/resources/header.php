@@ -2,7 +2,6 @@
 
 include 'utils.php'
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,15 +53,33 @@ include 'utils.php'
 				</div>
 			  </form>
 			</li>
+			<?php 
+			// sin inicio de sesion
+	if (!isset($_SESSION["user"])) {
+			?>
             <li class="nav-item">
-              <a class="nav-link" href="login.php">Iniciar sesi&oacute;n</a>
+              <a class="nav-link" href="login.php"><i class="fa fa-fw fa-sign-in"></i> Iniciar sesi&oacute;n</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="register.html">Registrarse</a>
+              <a class="nav-link" href="register.html"><i class="fa fa-fw fa-registered"></i> Registrarse</a>
+            </li>
+            <?php 
+	}
+    // con inicio de sesion
+	else {
+			?>
+			<li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-fw fa-desktop"></i> Mi cuenta</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i>Carrito</a>
+              <a class="nav-link" href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrito</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="logout"><i class="fa fa-fw fa-sign-out"></i> Cerrar sesi&oacute;n</a>
+            </li>
+            <?php 
+	}
+			?>
           </ul>
         </div>
       </div>

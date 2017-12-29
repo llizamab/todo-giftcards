@@ -1,4 +1,9 @@
 
+-- usuario de prueba
+INSERT INTO TBL_USUARIO (ID_USUARIO, USER_NAME, EMAIL, PASSWORD, EMAIL_VALIDO, ACTIVO, FECHA_ALTA, TIMESTAMP_ALTA)
+VALUES (1, 'user1', 'user@gt.cl', 'pItQFfmVcrmP7t3zCfO8RA==', true, true, current_date, current_timestamp);
+
+
 -- Estados
 INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (1, 'Borrador', 'En estado de compra pendiente pago usuario');
 INSERT INTO TBL_ESTADOS (ID_ESTADO, TXT_NOMBRE_ESTADO, TXT_DESCRIPCION_ESTADO) VALUES (2, 'PendienteAprobacion', 'Pagado por usuario y Pendiente aprobacion empresa');

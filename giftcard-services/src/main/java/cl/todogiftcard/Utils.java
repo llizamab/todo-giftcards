@@ -15,6 +15,8 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.commons.validator.routines.EmailValidator;
+
 
 public class Utils {
 
@@ -116,5 +118,10 @@ public class Utils {
         	encrypted = encrypted.substring(0, lenght);
         }
         return encrypted;
+    }
+    
+    public static boolean validarEmail(final String email) {
+    	// valido
+    	return EmailValidator.getInstance().isValid(email);
     }
 }
