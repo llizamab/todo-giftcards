@@ -6,6 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -13,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/nav-bar/nav-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -25,7 +27,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -40,9 +43,14 @@ export function createTranslateLoader(http: HttpClient) {
         }
     }),
     AppRoutingModule,
-    NgbDropdownModule.forRoot()
+    NgbDropdownModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent, HeaderComponent]
+  bootstrap: [
+  	AppComponent, 
+  	HeaderComponent,
+  	FooterComponent
+  ]
 })
 export class AppModule { }
