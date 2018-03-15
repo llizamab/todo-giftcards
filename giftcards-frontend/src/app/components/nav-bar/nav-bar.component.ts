@@ -8,14 +8,17 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./nav-bar.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+    name = 'Todo-Giftcards 2018';
     pushRightClass: string = 'push-right';
+    public categories: Array<any> = [];
 
     constructor(private translate: TranslateService, public router: Router) {
 
-        this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
+        this.translate.addLangs(['en', 'es']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
-        this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
+        this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
 
         this.router.events.subscribe(val => {
             if (
@@ -26,6 +29,18 @@ export class HeaderComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
+        
+        this.categories.push(
+            {
+                name: 'Categoria 1'
+            },
+            {
+                name: 'Categoria 2'
+            },
+            {
+                name: 'Categoria 3'
+            }
+        );
     }
 
     ngOnInit() {}
@@ -34,12 +49,12 @@ export class HeaderComponent implements OnInit {
         const dom: Element = document.querySelector('body');
         return dom.classList.contains(this.pushRightClass);
     }
-
+    
     toggleSidebar() {
         const dom: any = document.querySelector('body');
         dom.classList.toggle(this.pushRightClass);
     }
-
+    
     rltAndLtr() {
         const dom: any = document.querySelector('body');
         dom.classList.toggle('rtl');

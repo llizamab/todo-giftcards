@@ -9,12 +9,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CardsComponent } from './components/cards-list/cards.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -28,7 +33,9 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent,
+    CardsComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +51,9 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     AppRoutingModule,
     NgbDropdownModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [AuthGuard],
   bootstrap: [
