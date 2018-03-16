@@ -7,15 +7,17 @@
      	<div class="col-lg-3 col-mb-4 col-sm-6" *ngFor="let card of cards">
           <div class="card h-100">
             <h5 class="card-header">{{ card.name }}</h5>
-			<a href="#"><img class="card-img-top" src="{{ card.urlImageMedium }}" alt=""></a>
+			<a href="#" routerLink="/gifcardDetail/{{ card.id }}" ><img class="card-img-top" src="{{ card.urlImageMedium }}" alt=""></a>
             <div class="card-body">
 			  <h4 class="card-title">
-                <a href="#">{{ card.title }}</a>
+                <a href="#" routerLink="/gifcardDetail/{{ card.id }}" >{{ card.title }}</a>
               </h4>
               <p class="card-text">{{ card.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">{{ 'Buy' | translate }}</a>
+              <a href="#" routerLink="/gifcardDetail/{{ card.id }}" class="btn btn-primary">
+                <i class=" fa fa-gift"></i> {{ 'Buy' | translate }}
+              </a>
             </div>
           </div>
         </div>

@@ -31,5 +31,16 @@
     "View All" : "View All",
     "Categories" : "Categories",
     "PopularGiftCards" : "Popular GiftCards",
-    "Buy" : "Buy"
+    "Buy" : "Buy",
+    "PageNotFound" : "Error Page Not found!!",
+    "GiftCardDescription" : "GiftCard Description",
+    "Details" : "Details",
+    "Destinatary" : "Destinatary",
+    "Name" : "Name",
+    "LastName" : "LastName",
+    "Message" : "Message",
+    "PayMethod" : "PayMethod",
+    "AddToCar" : "Add to shopping cart",
+    "Back" : "Back",
+    "ShoppingCart" : "Shopping Cart"
 }

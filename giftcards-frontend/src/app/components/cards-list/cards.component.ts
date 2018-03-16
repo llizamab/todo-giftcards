@@ -26,21 +26,21 @@ export class CardsComponent implements OnInit {
                 description: 'descripcion'
             },
             {
-                id: 1,
+                id: 2,
                 name: 'Giftcard 2',
                 urlImageMedium: 'assets/images/giftcard.png',
                 title: 'titulo',
                 description: 'descripcion'
             },
             {
-                id: 1,
+                id: 3,
                 name: 'Giftcard 3',
                 urlImageMedium: 'assets/images/giftcard2.jpg',
                 title: 'titulo',
                 description: 'descripcion'
             },
             {
-                id: 1,
+                id: 4,
                 name: 'Giftcard 4',
                 urlImageMedium: 'assets/images/giftcard2.png',
                 title: 'titulo',
@@ -48,7 +48,7 @@ export class CardsComponent implements OnInit {
             }
             ,
             {
-                id: 1,
+                id: 5,
                 name: 'Giftcard 5',
                 urlImageMedium: 'assets/images/giftcard3.png',
                 title: 'titulo',

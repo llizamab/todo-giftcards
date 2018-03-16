@@ -18,13 +18,10 @@ import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { CardsComponent } from './components/cards-list/cards.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
-    // for development
-    // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-5/master/dist/assets/i18n/', '.json');
+    // 
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -33,9 +30,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    CarouselComponent,
-    CardsComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,
