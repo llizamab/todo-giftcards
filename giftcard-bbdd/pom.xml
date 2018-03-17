@@ -24,7 +24,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.0</version>
                 <configuration>
-                    <url>jdbc:postgresql://192.168.99.100:5432/giftcard</url>
+                    <url>jdbc:postgresql://172.18.0.4:5432/giftcard</url>
                     <user>giftcard</user>
                     <password><![CDATA[14aD&LGbt=-J8h]]></password>
                 </configuration>

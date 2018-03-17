@@ -15,4 +15,5 @@ COPY . .
 RUN $(npm bin)/ng build
 
 # Launch app
-CMD ["ng", "serve"]
+ENTRYPOINT ["/bin/bash"]
+#CMD ["$(npm bin)/ng", "serve"]

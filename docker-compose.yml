@@ -18,14 +18,37 @@ services:
     restart: always
     ports:
       - 8085:8080
-  
-  front-end:
-    image: giftcards-frontend
-    restart: always
+
+  services:
+    image: openjdk:8-jdk
+    container_name: backend-tg
     volumes:
-      - ./giftcard-frontend:/ng-app
+      - ./giftcard-services/target:/app
     ports:
-      - 80:4200
+      - 8080:9001
+    command: "java -jar /app/giftcard-services-1.0.0.jar"
+
+# TODO: crear una red interna para que no cambien las ips
+#
+  #front-end:
+  #  image: "node:8"
+  #  user: "node"
+  #  working_dir: /home/node/app
+    #environment:
+      #- NODE_ENV=production
+  #  volumes:
+  #    - ./giftcards-frontend:/home/node/app
+  #  expose:
+  #    - "4200"
+  #  command: "npm start"
+  
+  #front-end:
+  #  image: giftcards-frontend
+  #  restart: always
+  #  volumes:
+  #    - ./giftcard-frontend:/ng-app
+  #  ports:
+  #    - 80:4200
 
   #apache-php:
   #  image: php:7.0-apache

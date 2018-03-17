@@ -9,19 +9,19 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./giftcard-detail.component.scss']
 })
 export class GifcardDetailComponent implements OnInit {
-	public giftcard = {};
-	public id = 1;
-	
+	public giftcard;
+	public id;
+
 	constructor(private route: ActivatedRoute,
   			    private router: Router) {
 
 	}
-	
+
 	ngOnInit() {
 		this.id = this.route.snapshot.paramMap.get('id');
-			
+
 	    console.log("hola" + JSON.stringify(this.id));
-	    
+
 	    // llamar al service para cargar el objeto giftcard
 	    this.giftcard = {
 			id: this.id,
