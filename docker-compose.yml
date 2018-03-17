@@ -22,9 +22,11 @@ services:
   front-end:
     image: giftcards-frontend
     restart: always
+    volumes:
+      - ./giftcard-frontend:/ng-app
     ports:
-      - 4200:80
-  
+      - 80:4200
+
   #apache-php:
   #  image: php:7.0-apache
   #  container_name: apache-tg
@@ -36,3 +38,5 @@ services:
 volumes:
   postgresql:
   postgresql_data:
+  angular_app:
+ 
