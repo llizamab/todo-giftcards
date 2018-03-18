@@ -1,3 +1,4 @@
+import { GiftCardService } from '../../services/giftcard.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,54 +9,26 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class CardsComponent implements OnInit {
 
-	public cards: Array<any> = [];
+	   public cards: Array<any> = [];
   
-     constructor(private translate: TranslateService, public router: Router) {
+     constructor(private translate: TranslateService, 
+                 public router: Router, 
+                 private giftcardService: GiftCardService) {
 
         this.translate.addLangs(['en', 'es']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
-        
-        this.cards.push(
-            {
-                id: 1,
-                name: 'Giftcard 1',
-                urlImageMedium: 'assets/images/gift-card.jpg',
-                title: 'titulo',
-                description: 'descripcion'
-            },
-            {
-                id: 2,
-                name: 'Giftcard 2',
-                urlImageMedium: 'assets/images/giftcard.png',
-                title: 'titulo',
-                description: 'descripcion'
-            },
-            {
-                id: 3,
-                name: 'Giftcard 3',
-                urlImageMedium: 'assets/images/giftcard2.jpg',
-                title: 'titulo',
-                description: 'descripcion'
-            },
-            {
-                id: 4,
-                name: 'Giftcard 4',
-                urlImageMedium: 'assets/images/giftcard2.png',
-                title: 'titulo',
-                description: 'descripcion'
-            }
-            ,
-            {
-                id: 5,
-                name: 'Giftcard 5',
-                urlImageMedium: 'assets/images/giftcard3.png',
-                title: 'titulo',
-                description: 'descripcion'
-            }
-        );
+
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+      this.getAllGiftCards();
+    }
+  
+    getAllGiftCards(): void {
+      
+      this.giftcardService.getAllGiftCards()
+            .subscribe(giftcards => this.cards = giftcards);
+    }
 }

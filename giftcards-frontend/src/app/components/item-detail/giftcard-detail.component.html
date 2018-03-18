@@ -20,10 +20,13 @@
 		<div class="col-md-7">
 			<h3 class="my-3">{{ 'GiftCardDescription' | translate }}</h3>
 			<p>{{ giftcard.descripcion }}</p>
+			
+			<div *ngIf="giftcard.details">
 			<h3 class="my-3">{{ 'Details' | translate }}</h3>
 			<ul *ngFor="let detail of giftcard.details">
 				<li>{{ detail }}</li>
 			</ul>
+			</div>
 		</div>
 
 	</div>
